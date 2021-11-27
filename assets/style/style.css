@@ -1,0 +1,15 @@
+img {
+    position: absolute;
+    z-index: -1 !important;
+    height: 100%;
+    width: 100%;
+}
+#YES {
+    margin-left: 18%;
+    font-size: 600px;
+    color: white;
+    display: none;
+}
+#introElement {
+    display: none;
+}
