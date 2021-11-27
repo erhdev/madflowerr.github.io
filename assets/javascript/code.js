@@ -1,6 +1,7 @@
 var time;
 var timeText;
-var location;
+var place;
+console.log(place)
 var latlng;
 var mapsURL;
 
@@ -13,12 +14,15 @@ function logPosition(position) {
 }
 
 function getAddress() {
-
     $.ajax({
         url: mapsURL,
         method: "GET"
     }).then(function(response) {
-            console.log(response);    
+            console.log(response);
+            var commaLocation = response.results[5].formatted_address.indexOf(",");
+            place = response.results[5].formatted_address.slice(0, commaLocation);
+            $("#placeBox").text(" in " + place + ".")
+            $("#placeBox").fadeIn(400);
     });
 }
 
@@ -28,12 +32,8 @@ function setDate() {
     timeText.slice(0, 36)
 //  console.log(time);
 //    if (time
-    $("#timeBox").text("It is currently " + timeText + "in");
+    $("#timeBox").text("It is currently " + timeText);
 }
-// Sat Nov 27 2021 11:53:14 GMT-0500 (Eastern Standard Time)
-
-
-
 
 function playMusic() {
     document.querySelector("#music").play();
@@ -57,6 +57,15 @@ function playMusic() {
      $("#introElement").fadeIn(500);
  }
 
+ function placeBoxFade() {
+     console.log("firing")
+     console.log(place)
+     if(typeof place !== "undefined") {
+         console.log("firing")
+        
+     }
+ }
+
 $( document ).ready(function() {
     navigator.geolocation.getCurrentPosition(logPosition);
     setDate();
@@ -65,4 +74,5 @@ $( document ).ready(function() {
     setInterval(function(){
         setDate();
     } , 1000)
+    placeBoxFade();
 })
