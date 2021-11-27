@@ -28,5 +28,10 @@ function introElementFade() {
 $( document ).ready(function() {
     setDate();
     introElementFade();
-    console.log("firing")
+    
+    setInterval(function(){
+        setDate();
+    } , 1000)
 })
+
+console.log("The grind extends to the console too. Did you think that the grind would stop at the viewport?")
