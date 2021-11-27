@@ -1,14 +1,12 @@
 var time;
 var timeText;
 var place;
-console.log(place)
 var latlng;
 var mapsURL;
 
 function logPosition(position) {
     latlng = position.coords.latitude + "," + position.coords.longitude;
     latlng.toString();
-    
     mapsURL = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + latlng + "&key=AIzaSyC1o1Xen2LI7c3nc8j1ksLNczyb8YkQ43E"
     getAddress();
 }
@@ -24,6 +22,7 @@ function getAddress() {
             $("#placeBox").text(" in " + place + ".")
             $("#placeBox").fadeIn(400);
     });
+    console.log(place)
 }
 
 function setDate() {
