@@ -22,7 +22,6 @@ function getAddress() {
             $("#placeBox").text(" in " + place + ".")
             $("#placeBox").fadeIn(400);
     });
-    console.log(place)
 }
 
 function setDate() {
@@ -57,11 +56,8 @@ function playMusic() {
  }
 
  function placeBoxFade() {
-     console.log("firing")
-     console.log(place)
      if(typeof place !== "undefined") {
          console.log("firing")
-        
      }
  }
 
