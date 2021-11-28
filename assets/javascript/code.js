@@ -19,6 +19,7 @@ function getAddress() {
             console.log(response);
             var commaLocation = response.results[5].formatted_address.indexOf(",");
             place = response.results[5].formatted_address.slice(0, commaLocation);
+            console.log(place)
             $("#placeBox").text(" in " + place + ".")
             $("#placeBox").fadeIn(400);
     });
@@ -55,11 +56,13 @@ function playMusic() {
      $("#introElement").fadeIn(500);
  }
 
- function placeBoxFade() {
-     if(typeof place !== "undefined") {
-         console.log("firing")
-     }
- }
+// function placeBoxFade() {
+     //console.log(value);
+  //   if(typeof place == "undefined") {
+    //     console.log("firing")
+      //   $("#placeBox").fadeIn(400)
+    // }
+ // }
 
 $( document ).ready(function() {
     navigator.geolocation.getCurrentPosition(logPosition);
@@ -69,5 +72,5 @@ $( document ).ready(function() {
     setInterval(function(){
         setDate();
     } , 1000)
-    placeBoxFade();
+    // placeBoxFade();
 })
